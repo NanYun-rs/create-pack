@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "构建工具配置初始化脚手架",
   "bin": {
-    "create-pack": "index.js"
+    "create-mutipack": "index.js"
   },
   "author": "yushengyu",
   "license": "ISC",
