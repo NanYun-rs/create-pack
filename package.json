@@ -1,0 +1,16 @@
+{
+  "name": "create-pack",
+  "version": "1.0.0",
+  "description": "构建工具配置初始化脚手架",
+  "bin": {
+    "create-pack": "index.js"
+  },
+  "author": "yushengyu",
+  "license": "ISC",
+  "dependencies": {
+    "cross-spawn": "^7.0.3",
+    "kolorist": "^1.7.0",
+    "prompts": "^2.4.2",
+    "yargs": "^17.7.1"
+  }
+}
