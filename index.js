@@ -4,7 +4,7 @@ const yargs = require("yargs");
 const spawn = require("cross-spawn");
 const prompts = require("prompts");
 const { hideBin } = require("yargs/helpers");
-const { blue, cyan, green, lightGreen, reset } = require("kolorist");
+const { blue, red, green, yellow, reset } = require("kolorist");
 
 const TEMPLATES = [
   {
@@ -15,10 +15,10 @@ const TEMPLATES = [
 ];
 
 const PKGMANAGER = [
-  { name: "npm", color: blue },
-  { name: "cnpm", color: cyan },
-  { name: "yarn", color: green },
-  { name: "pnpm", color: lightGreen },
+  { name: "pnpm", color: green },
+  { name: "yarn", color: blue },
+  { name: "npm", color: red },
+  { name: "cnpm", color: yellow },
 ];
 
 yargs(hideBin(process.argv))
@@ -88,11 +88,9 @@ yargs(hideBin(process.argv))
     const templateFilePath = path.resolve(__dirname, template.name);
     // 将模板文件夹复制到目标文件夹
     copyFolder(templateFilePath, targetDir);
-    // 执行安装命令
-    const command = `${package.name} install`;
-    console.log("command: ", command);
     // 创建新进程用于执行 package install
-    const { status } = spawn.sync(command, {
+    // spawn 用于跨平台执行命令、child_process 使用子进程执行命令
+    const { status } = spawn.sync(package.name, ["install"], {
       cwd: targetDir,
       stdio: "inherit",
     });
