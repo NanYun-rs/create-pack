@@ -10,7 +10,7 @@ const TEMPLATES = [
   {
     name: "template-webpack",
     display: "template-webpack",
-    color: blue,
+    color: green,
   },
 ];
 
